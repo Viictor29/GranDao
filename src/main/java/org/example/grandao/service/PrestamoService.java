@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PestamoService {
+public class PrestamoService {
 
     private final UsuarioRepository usuarioRepository;
     private final EjemplarRepository ejemplarRepository;
     private PrestamoRepository prestamoRepository;
 
     @Autowired
-    public PestamoService(PrestamoRepository prestamoRepository, UsuarioRepository usuarioRepository, EjemplarRepository ejemplarRepository) {
+    public PrestamoService(PrestamoRepository prestamoRepository, UsuarioRepository usuarioRepository, EjemplarRepository ejemplarRepository) {
         this.prestamoRepository = prestamoRepository;
         this.usuarioRepository = usuarioRepository;
         this.ejemplarRepository = ejemplarRepository;
