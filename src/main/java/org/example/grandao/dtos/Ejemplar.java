@@ -1,14 +1,20 @@
-package org.example.grandao.dto;
+package org.example.grandao.dtos;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "ejemplar")
 public class Ejemplar {
@@ -18,7 +24,7 @@ public class Ejemplar {
     private Integer id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "isbn", nullable = false)
     private Libro isbn;
@@ -30,37 +36,5 @@ public class Ejemplar {
 
     @OneToMany(mappedBy = "ejemplar")
     private Set<Prestamo> prestamos = new LinkedHashSet<>();
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Libro getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(Libro isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Set<Prestamo> getPrestamos() {
-        return prestamos;
-    }
-
-    public void setPrestamos(Set<Prestamo> prestamos) {
-        this.prestamos = prestamos;
-    }
 
 }

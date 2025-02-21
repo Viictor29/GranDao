@@ -1,12 +1,19 @@
-package org.example.grandao.dto;
+package org.example.grandao.dtos;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+
+@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "libro")
 public class Libro {
@@ -27,37 +34,5 @@ public class Libro {
 
     @OneToMany(mappedBy = "isbn")
     private Set<Ejemplar> ejemplars = new LinkedHashSet<>();
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public Set<Ejemplar> getEjemplars() {
-        return ejemplars;
-    }
-
-    public void setEjemplars(Set<Ejemplar> ejemplars) {
-        this.ejemplars = ejemplars;
-    }
 
 }
