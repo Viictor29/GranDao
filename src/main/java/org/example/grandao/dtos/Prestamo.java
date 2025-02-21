@@ -34,17 +34,11 @@ public class Prestamo {
     private Ejemplar ejemplar;
 
     @NotNull(message = "La fecha de inicio no puede ser nula")
-    @Column(name = "fechaInicio", nullable = false)
-    private LocalDate fechaInicio;
+    @Column(name = "fecha_inicio", nullable = false)
+    private LocalDate fecha_inicio;
 
-    @Column(name = "fechaDevolucion")
-    private LocalDate fechaDevolucion;
-
-    @Column(name = "fecha_fin")
-    private LocalDate fechaFin;
-
-    @Column(name = "fecha_inicio")
-    private LocalDate fechaInicio1;
+    @Column(name = "fecha_devolucion")
+    private LocalDate fecha_devolucion;
 
     @NotNull (message = "El id del ejemplar no puede ser nulo")
     @Column(name = "id_ejemplar", nullable = false)

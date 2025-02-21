@@ -56,9 +56,6 @@ public class Usuario {
     @Column(name = "apellido")
     private String apellido;
 
-    @Column(name = "penalizacion_hasta")
-    private LocalDate penalizacionHasta1;
-
     @OneToMany(mappedBy = "usuario")
     private Set<Prestamo> prestamos = new LinkedHashSet<>();
 
