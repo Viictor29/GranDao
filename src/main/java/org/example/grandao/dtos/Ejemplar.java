@@ -2,6 +2,7 @@ package org.example.grandao.dtos;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.Getter;
@@ -23,15 +24,17 @@ public class Ejemplar {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "El isbn no puede ser nulo")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "isbn", nullable = false)
+    @Pattern(regexp = "", message = "ISBN incorrecto")
     private Libro isbn;
 
     @Size(max = 100)
-    @NotNull
+    @NotNull(message = "El estado no puede ser nulo")
     @Column(name = "estado", nullable = false, length = 100)
+    @Pattern(regexp = "^(Disponible|Prestado|Dañado)$", message = "El estado debe ser 'disponible', 'prestado' o 'dañado'")
     private String estado;
 
     @OneToMany(mappedBy = "ejemplar")
