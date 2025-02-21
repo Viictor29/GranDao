@@ -33,6 +33,7 @@ public class EjemplarService {
     public Ejemplar actualizarEjemplar(int id, Ejemplar ejemplar) {
         Ejemplar updated = ejemplarRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe el ejemplar con ese ID"));
         updated.setEstado(ejemplar.getEstado());
+        updated.setIsbn(ejemplar.getIsbn());
         return ejemplarRepository.save(updated);
     }
 
