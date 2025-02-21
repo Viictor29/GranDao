@@ -39,7 +39,7 @@ public class PestamoService {
     }
 
     public Prestamo actualizarPrestamo(Integer id, Prestamo prestamo) {
-        Prestamo prestamoActualizado = prestamoRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el cliente con id: " + id));
+        Prestamo prestamoActualizado = prestamoRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el prestamo con id: " + id));
         Usuario usuario = usuarioRepository.findById(prestamo.getUsuario().getId()).get();
         Ejemplar ejemplar = ejemplarRepository.findById(prestamo.getEjemplar().getId()).get();
 

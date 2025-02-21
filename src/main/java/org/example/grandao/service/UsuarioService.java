@@ -25,7 +25,7 @@ public class UsuarioService {
 
     public Usuario getUsuarioById(int id) {
         return usuarioRepository.findById(id).orElseThrow(() ->
-                new RuntimeException("No se encontro el prestamo con el id: " + id));
+                new RuntimeException("No se encontro el Usuario con el id: " + id));
     }
 
     public Usuario crearUsuario(Usuario usuario) {
@@ -34,7 +34,7 @@ public class UsuarioService {
 
 
     public Usuario actualizarUsuario(Integer id, Usuario usuario) {
-        Usuario usuarioActualizado = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el cliente con id: " + id));
+        Usuario usuarioActualizado = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontro el Usuario con id: " + id));
 
         usuarioActualizado.setDni(usuario.getDni());
         usuarioActualizado.setNombre(usuario.getNombre());
