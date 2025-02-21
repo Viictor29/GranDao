@@ -21,19 +21,19 @@ public class Prestamo {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "El usuario_id no puede ser nulo")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @NotNull
+    @NotNull(message = "El ejemplar_id no puede ser nulo")
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "ejemplar_id", nullable = false)
     private Ejemplar ejemplar;
 
-    @NotNull
+    @NotNull(message = "La fecha de inicio no puede ser nula")
     @Column(name = "fechaInicio", nullable = false)
     private LocalDate fechaInicio;
 
@@ -46,11 +46,11 @@ public class Prestamo {
     @Column(name = "fecha_inicio")
     private LocalDate fechaInicio1;
 
-    @NotNull
+    @NotNull (message = "El id del ejemplar no puede ser nulo")
     @Column(name = "id_ejemplar", nullable = false)
     private Integer idEjemplar;
 
-    @NotNull
+    @NotNull (message = "El id del usuario no puede ser nulo")
     @Column(name = "id_usuario", nullable = false)
     private Integer idUsuario;
 
